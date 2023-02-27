@@ -1,0 +1,105 @@
+{% extends 'adminhome.html' %}
+
+
+{% block section %}
+
+{% endblock %}
+
+{% block about %}
+<br><br><br><br><br><br><br><br>
+<center>
+<h2><strong>Manage Users Here!!!!!!!!</strong></h2>
+
+<br><br>
+
+<table border="2" cellspacing="5" cellpadding="10">
+    
+    <tr>
+        <b>
+        <th>RegId</th>
+        <th>Name</th>
+        <th>Username</th>
+        <th>Password</th>
+        <th>Address</th>
+        <th>Mobile</th>
+        <th>City</th>
+        <th>Pin Code</th>
+        <th>Gender</th>
+        <th>Info</th>
+        <th>Status</th>
+        <th>Action</th>    
+        </b>
+    </tr>
+
+    {% for row in userDetails %}
+    <tr>
+        <td>{{row.regid}}</td>
+        <td>{{row.name}}</td>
+        <td>{{row.username}}</td>
+        <td>{{row.password}}</td>
+        <td>{{row.address}}</td>
+        <td>{{row.mobile}}</td>
+        <td>{{row.city}}</td>
+        <td>{{row.pcode}}</td>
+        <td>{{row.gender}}</td>
+        <td>{{row.dt}}</td>
+
+        <td>
+            {% if row.status %}
+            <a href="/myadmin/manageuserstatus/?s=block&regid={{row.regid}}" style="color:green;">Block User</a>
+            {% else %}
+            <a href="/myadmin/manageuserstatus/?s=verify&regid={{row.regid}}" style="color:orange;">Verify User</a>
+            {% endif %}    
+        </td>
+        <td>
+            <a href="/myadmin/manageuserstatus/?s=delete&regid={{row.regid}}" style="color:red;">Delete User</a>
+        </td>
+
+    </tr>
+    {% endfor %}
+    
+</table>
+<br><br><br>
+<h5>
+    <p>
+        *Note for user Status---><br>
+        1. If "Block User":User Verified<br>
+        2. If "Verify User":User Unverified
+        
+    </p>
+</h5>
+
+</center>
+{% endblock %}
+
+{% block facts %}
+
+{% endblock %}
+
+{% block courses %}
+ 
+{% endblock %}
+
+{% block learn %}
+  
+{% endblock %} 
+
+{% block contact %}
+
+{% endblock %}
+
+{% block footer %}
+
+  <br><br><br><br><br><br>
+
+              </div>
+              <div class="copyright">
+                <div class="container">
+                    <p>Copyright © 2020-2021 Learning Hub </p>
+                    <p> Designed and Developed By: Ajinkya Pradhan </a></p>
+                </div>
+              </div>
+      </div>
+    </footer>
+  <!-- end footer -->
+  {% endblock %}

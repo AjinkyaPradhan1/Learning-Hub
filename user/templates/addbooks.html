@@ -1,0 +1,173 @@
+{% extends 'userhome.html' %}
+
+
+{% block section %}
+
+
+{% endblock %}
+
+{% block about %}
+
+<br><br><br>
+
+<center>
+    
+
+      
+
+      <script>
+
+        function showSubject(cnm)
+        {
+            var xhttp=new XMLHttpRequest()
+            xhttp.open("GET","/user/showSubject/?cnm="+cnm,true)
+            xhttp.send()
+        
+            xhttp.onreadystatechange=function()
+            {
+                if(xhttp.readyState==4 && xhttp.status==200)
+                {
+                    document.getElementById("response").innerHTML=xhttp.responseText
+        
+                }
+            }
+        }
+        </script>
+        
+        <br><br><br>
+        <h5><u><i><a href="/user/viewbooksuser/">Get Your Product Verified!!!!!!!!!!</a></i></u></h5>
+        
+        
+        <br>
+        <h1><strong>Sell Books Here!!!!!!!</strong></h1>
+        <br>
+        
+        
+        
+        <font color="red">{{msg}}</font>
+        <br>
+        <form form enctype="multipart/form-data" method="post" action="/user/addbooks/">
+        {% csrf_token %}
+        <table cellspacing="20" cellpadding="10">
+            
+               
+            <tr>
+                <td>Book Title &nbsp;</td>
+                <td><input style="width:90%;" type="text" name="title" placeholder="Enter title"/></td>
+            </tr>
+        
+            <tr>
+                <td>Class &nbsp;</td>
+                <td>
+                    <select onchange="showSubject(this.value)" style="width:90%;" name="catnm">
+                    <option>Select Class</option>
+                    {% for c in clist %}
+                    <option>{{c.catnm}}</option>
+                    {% endfor %}
+                     </select>
+                </td>
+            </tr>
+        
+            <tr>
+                <td>Subject &nbsp;</td>
+                <td>
+                    <select style="width:90%;" id="response" name="subcatnm">
+                    <option>Select Subject</option>
+                    </select>
+                </td>
+            </tr>
+        
+            
+            <tr>
+                <td>Base Price &nbsp;</td>
+                <td><input style="width:90%;" type="text" name="baseprice" placeholder="Enter Base Price"/></td>
+            </tr>
+        
+            <tr>
+                <td>Description &nbsp;</td>
+                <td><textarea style="width:90%;" name="description" placeholder="Descibe your Book"></textarea></td>
+            </tr>
+
+            <tr>
+                <td>Author &nbsp;</td>
+                <td><input style="width:90%;" type="text" name="author" placeholder="Name of Author"/></td>
+            </tr>
+
+            <tr>
+                <td>Edition &nbsp;</td>
+                <td><input style="width:90%;" type="text" name="edition" placeholder="Specify the Edition"/></td>
+            </tr>
+
+            <tr>
+                <td>Publisher &nbsp;</td>
+                <td><input style="width:90%;" type="text" name="publisher" placeholder="Name of Publisher"/></td>
+            </tr>
+        
+            <tr>
+                <td>Product Icon</td>
+                <td>
+                File 1--->Book Front Cover :&nbsp; &nbsp;<input type="file" name="file1" required/>
+                <br><br>
+                File 2--->Book Index Page : &nbsp; &nbsp;<input type="file" name="file2" required/>
+                <br><br>
+                File 3--->Book Back Cover : &nbsp; &nbsp;<input type="file" name="file3" />
+                <br><br>
+                File 4--->Book Sample Page : <input type="file" name="file4" />
+                </td>
+            </tr>
+        
+            <tr>
+                <td colspan="1">
+                    <br>
+                    <center>
+                &nbsp;<input type="submit" value="Add Book"/></td>
+                    </center>
+            </tr>
+            
+        
+        </table>
+        </form>
+        </center>
+    
+
+    
+    
+    
+</center>
+
+{% endblock %}
+
+{% block facts %}
+
+{% endblock %}
+
+{% block courses %}
+
+
+
+ 
+{% endblock %}
+
+{% block learn %}
+  
+{% endblock %} 
+
+{% block contact %}
+
+{% endblock %}
+
+{% block footer %}
+
+  <br><br><br><br><br><br>
+
+              </div>
+              <div class="copyright">
+                <div class="container">
+                    <p>Copyright © 2020-2021 Learning Hub </p>
+                    <p> Designed and Developed By: Ajinkya Pradhan </a></p>
+                </div>
+              </div>
+      </div>
+    </footer>
+  <!-- end footer -->
+  {% endblock %}

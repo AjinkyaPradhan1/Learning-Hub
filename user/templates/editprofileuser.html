@@ -1,0 +1,123 @@
+{% extends 'userhome.html' %}
+
+{% block section %}
+
+{% endblock %}
+
+{% block about %}
+<br><br><br>
+<center>
+    
+    <br>
+    <h1><strong>EDIT YOUR PROFILE HERE!!!!!!!!!</strong></h1>
+    
+    <br><br>
+
+    <font color="orange">{{msg}}</font>
+
+    <form method="POST" action=/user/updateDataUser/ >
+    {% csrf_token %}
+        <table cellspacing="5" cellpadding="5">
+        <tr>
+            <td>Name</td>
+            <td><input type="text" name="name" value="{{userDetails.name}}"/></td>    
+        </tr>
+
+        <tr>
+            <td>Username</td>
+            <td><input type="email" name="email" value="{{userDetails.username}}" readonly/></td>    
+        </tr>
+
+        <tr>
+            <td>Mobile</td>
+            <td><input type="text" name="mobile" value="{{userDetails.mobile}}"/></td>    
+        </tr>
+
+        <tr>
+            <td>Address</td>
+            <td>
+                <textarea cols="22" rows="5" name="address">{{userDetails.address}}</textarea>    
+            </td>    
+        </tr>
+
+        <tr>
+            <td>City</td>
+            <td>
+            <select style="width:100%;" name="city">
+                <option>{{userDetails.city}}</option>
+                <option>Indore</option>
+                <option>Bhopal</option>
+                <option>Ujjain</option>
+                <option>Khajuraho</option>
+                <option>Dhar</option>
+                <option>Ratlam</option>
+                <option>Jabalpur</option>
+                <option>Khargone</option>
+                <option>Khandwa</option>
+                <option>Sendhwa</option>
+                <option>Gwalior</option>
+                <option>Hoshangabad</option>
+            </select>    
+            </td>    
+        </tr>
+
+        <tr>
+            <td>Pin Code</td>
+            <td><input type="text" name="pcode" value="{{userDetails.pcode}}"/></td>    
+        </tr>
+
+        <tr>
+            <td>Gender</td>
+            <td>
+            Male <input type="radio" name="gender" value="male" {{m}} />
+            &nbsp;&nbsp;
+            Female <input type="radio" name="gender" value="female" {{f}} />
+            </td>    
+        </tr>
+
+        <tr>
+            <td colspan="2">
+            <center>
+            <input type="submit" name="sub" value="Update"/>    
+            </center>
+            </td>    
+        </tr>
+        </table>
+    </form>
+    
+    
+</center>
+
+{% endblock %}
+
+{% block facts %}
+
+{% endblock %}
+
+{% block courses %}
+ 
+{% endblock %}
+
+{% block learn %}
+  
+{% endblock %} 
+
+{% block contact %}
+
+{% endblock %}
+
+{% block footer %}
+
+  <br><br><br><br><br><br>
+
+              </div>
+              <div class="copyright">
+                <div class="container">
+                    <p>Copyright © 2020-2021 Learning Hub </p>
+                    <p> Designed and Developed By: Ajinkya Pradhan </a></p>
+                </div>
+              </div>
+      </div>
+    </footer>
+  <!-- end footer -->
+  {% endblock %}

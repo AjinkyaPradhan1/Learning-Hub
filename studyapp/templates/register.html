@@ -1,0 +1,160 @@
+{% extends 'master_template.html' %}
+
+{% block section %}
+<center>
+
+<script>
+    
+    function showCity(stcnm)
+    {
+        var xhttp=new XMLHttpRequest()
+        xhttp.open("GET","/showCity/?stcnm="+stcnm,true)
+        xhttp.send()
+
+        xhttp.onreadystatechange=function()
+        {
+            if(xhttp.readyState==4 && xhttp.status==200)
+            {
+                document.getElementById("response").innerHTML=xhttp.responseText
+            }
+        }
+    
+    }
+
+</script>    
+
+
+     
+
+
+<b>
+<br><br><br><br><br><br>
+<h2><strong>REGISTER HERE!!!!!!!!</strong></h2>    
+<br>
+<font color="red">{{msg}}</font>
+<form method="post" action="/register/">
+{% csrf_token %}
+<table cellspacing="5" cellpadding="5">
+
+    
+    <tr>
+        <td><strong>Name</strong> &nbsp;</td>
+        <td><input type="text" name="name" placeholder="Enter name" required/></td>
+    </tr>
+
+    <tr>
+        <td><strong>UserName</strong> &nbsp;</td>
+        <td><input type="email" name="email" placeholder="Enter username/email" required/></td>
+    </tr>
+
+    <tr>
+        <td><strong>Password</strong> &nbsp;</td>
+        <td><input type="password" name="password" placeholder="Enter password (10 Characters ONLY)" required/></td>
+    </tr>
+
+    <tr>
+        <td><strong>Mobile Number</strong> &nbsp;</td>
+        <td><input type="text" name="mobile" placeholder="Enter Mobile Number" required/></td>
+    </tr>
+
+    <tr>
+        <td><strong>Address</strong> &nbsp;</td>
+        <td><textarea name="address" placeholder="Enter Address" required/></textarea></td>
+    </tr>
+
+
+    <tr>
+        <td>State &nbsp;</td>
+        <td>
+            <select onchange="showCity(this.value)" style="width:90%;" name="stcatnm">
+            <option>Select State</option>
+            {% for c in stclist %}
+            <option>{{c.stcatnm}}</option>
+            {% endfor %}
+             </select>
+        </td>
+    </tr>
+
+    <tr>
+        <td>City &nbsp;</td>
+        <td>
+            <select style="width:90%;" id="response" name="city">
+            <option>Select City</option>
+            </select>
+            
+        </td>
+    </tr>
+        
+            
+    <tr>
+        <td><strong>Pin Code</strong> &nbsp;</td>
+        <td><input type="text" name="pcode" placeholder="Enter Pin Code" required/></td>
+    </tr>
+
+    <tr>
+        <td>Gender</td>
+        <td>
+            Male <input type="radio" name="gender" value="male"/>
+            &nbsp;&nbsp;
+            Female <input type="radio" name="gender" value="female"/>
+        </td>    
+        </tr>
+    
+    
+    
+    
+    <tr>
+        
+        <td colspan="2">
+            <center>
+                <br>
+        <input type="submit" name="sub" value="Register"/></td>
+            </center>
+    </tr>
+    
+
+</table>
+</form>
+
+</b>
+
+</center>
+    
+{% endblock %}
+
+{% block about %}
+
+{% endblock %}
+
+{% block contact %}
+
+{% endblock %}
+
+{% block facts %}
+
+{% endblock %}
+
+{% block courses %}
+ 
+{% endblock %}
+
+{% block learn %}
+  
+{% endblock %} 
+
+
+{% block footer %}
+
+  
+
+              </div>
+              <div class="copyright">
+                <div class="container">
+                    <p>Copyright © 2020-2021 Learning Hub </p>
+                    <p> Designed and Developed By: Ajinkya Pradhan </a></p>
+                </div>
+              </div>
+      </div>
+    </footer>
+  <!-- end footer -->
+  {% endblock %}

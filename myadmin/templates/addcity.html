@@ -1,0 +1,86 @@
+{% extends 'adminhome.html' %}
+
+
+{% block section %}
+
+{% endblock %}
+
+{% block about %}
+<br><br><br><br>
+
+<center>
+
+<h1><strong>Add City Here!!!</strong></h1> 
+
+<br><br><br>
+
+<font color="orange">{{msg}}</font>
+<form method="POST" action="/myadmin/addcity/" enctype="multipart/form-data">
+
+    {% csrf_token %}
+
+    <table cellspacing="5" cellpadding="5">
+
+    <tr>
+
+        <td><strong>City Name</strong></td>    
+        <td>
+            <select style="width:70%;" name="stcatnm">
+                <option>Select State</option>
+                {% for row in stclist %}
+                <option>{{row.stcatnm}}</option>
+                {% endfor%}
+            </select>
+        </td>
+    </tr>
+
+    <tr>
+        <td><strong>City Name</strong></td>    
+        <td><input type="text" name="city" placeholder="Enter City"/></td>
+    </tr>
+
+    
+    
+    <tr>
+        <td><input type="submit" value="Add City"/></td>
+    </tr> 
+
+    </table>
+
+</form>
+
+</center>
+
+{% endblock %}
+
+{% block facts %}
+
+{% endblock %}
+
+{% block courses %}
+ 
+{% endblock %}
+
+{% block learn %}
+  
+{% endblock %} 
+
+{% block contact %}
+
+{% endblock %}
+
+{% block footer %}
+
+  <br><br><br><br><br><br>
+
+              </div>
+              <div class="copyright">
+                <div class="container">
+                    <p>Copyright © 2020-2021 Learning Hub </p>
+                    <p> Designed and Developed By: Ajinkya Pradhan </a></p>
+                </div>
+              </div>
+      </div>
+    </footer>
+  <!-- end footer -->
+  {% endblock %}

@@ -1,0 +1,88 @@
+{% extends 'master_template.html' %}
+
+{% block section %}
+<center>
+
+    
+
+
+<b>
+<br><br><br><br><br><br><br><br><br><br>
+<h2><strong>LOGIN HERE!!!!!!!!</strong></h2>    
+<br>
+<font color="red">{{msg}}</font>
+<form method="post" action="/login/">
+{% csrf_token %}
+<table cellspacing="5" cellpadding="5">
+
+
+    <tr>
+        <td><strong>UserName</strong> &nbsp;</td>
+        <td><input type="email" name="email" placeholder="Enter username/email" required/></td>
+    </tr>
+
+    <tr>
+        <td><strong>Password</strong> &nbsp;</td>
+        <td><input type="password" name="password" placeholder="Enter password" required/></td>
+    </tr>
+
+   
+    
+    
+    
+    
+    <tr>
+        
+        <td colspan="2">
+            <center>
+                <br>
+        <input type="submit" name="sub" value="Login"/></td>
+            </center>
+    </tr>
+    
+
+</table>
+</form>
+
+</b>
+
+</center>
+    
+{% endblock %}
+
+{% block about %}
+
+{% endblock %}
+
+{% block contact %}
+
+{% endblock %}
+
+{% block facts %}
+
+{% endblock %}
+
+{% block courses %}
+ 
+{% endblock %}
+
+{% block learn %}
+  
+{% endblock %} 
+
+
+{% block footer %}
+
+  
+
+              </div>
+              <div class="copyright">
+                <div class="container">
+                    <p>Copyright © 2020-2021 Learning Hub </p>
+                    <p> Designed and Developed By: Ajinkya Pradhan </a></p>
+                </div>
+              </div>
+      </div>
+    </footer>
+  <!-- end footer -->
+  {% endblock %}

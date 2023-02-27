@@ -1,0 +1,118 @@
+{% extends 'userhome.html' %}
+
+
+{% block section %}
+
+
+{% endblock %}
+
+{% block about %}
+
+<br><br><br>
+
+<center>
+    
+
+      <br><br>
+
+    <h1><strong>BOOKS BUYING SECTION!!!!!!!!!</strong></h1>
+
+    <br><br>
+
+    <table border="2" cellspacing="7" cellpadding="7">
+        <tr>
+        <th>ProductID</th>
+        <th>Title</th>    
+        <th>Description</th>
+        <th>BasePrice</th>
+        <th>Author</th>
+        <th>Edition</th>
+        <th>Publisher</th>
+        <th>Images</th>
+        <th>UserID</th>
+        <th>Buy Book Through</th>
+        </tr>
+
+        {% for row in pDetails %}
+        <tr>
+            <td><center><b>{{row.pid}}</b></center></td>
+
+            <td><center><b>{{row.title}}</b></center></td>
+
+            <td><center><b>{{row.description}}</b></center></td>
+
+            <td><center><b>{{row.baseprice}}</b></center></td>
+
+            <td><center><b>{{row.author}}</b></center></td>
+
+            
+
+            <td><center><b>{{row.edition}}</b></center></td>
+
+            <td><center><b>{{row.publisher}}</b></center></td>
+
+            <td>
+                <img src="{{media_url}}{{row.file1}}" height="70" width="70" />
+                <img src="{{media_url}}{{row.file2}}" height="70" width="70" />
+                <img src="{{media_url}}{{row.file3}}" height="70" width="70" />
+                <img src="{{media_url}}{{row.file4}}" height="70" width="70" /> 
+
+            </td>  
+
+            
+
+            <td><center><b>{{row.uid}}</b></center></td>
+
+            <td>
+                <center><b><a href="https://www.phonepe.com/">PhonePe</a></b></center>
+                <center><b><a href="https://paytm.com/">Paytm</a></b></center>
+                <center><b><a href="https://accounts.google.com/ServiceLogin/signinchooser?service=billing&passive=1209600&continue=https%3A%2F%2Fpay.google.com%2Fpayments%2Fhome%23&followup=https%3A%2F%2Fpay.google.com%2Fpayments%2Fhome&flowName=GlifWebSignIn&flowEntry=ServiceLogin">GPay</a></b></center>
+                <center><b><a href="https://www.amazon.in/amazon-pay/b?ie=UTF8&node=11962098031">AmazonPay</a></b></center>
+                <center><b><a href="https://www.paypal.com/in/home">PayPal</a></b></center>
+                
+            
+            
+            
+            </td>
+            
+        </tr>
+        {% endfor %}
+    </table>
+
+
+{% endblock %}
+
+{% block facts %}
+    
+{% endblock %}
+    
+{% block courses %}
+    
+    
+    
+     
+{% endblock %}
+    
+{% block learn %}
+      
+{% endblock %} 
+    
+{% block contact %}
+    
+{% endblock %}
+    
+{% block footer %}
+    
+      <br><br><br><br><br><br>
+    
+                  </div>
+                  <div class="copyright">
+                    <div class="container">
+                        <p>Copyright © 2020-2021 Learning Hub </p>
+                        <p> Designed and Developed By: Ajinkya Pradhan </a></p>
+                    </div>
+                  </div>
+          </div>
+        </footer>
+      <!-- end footer -->
+      {% endblock %}
